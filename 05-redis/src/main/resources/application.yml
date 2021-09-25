@@ -1,0 +1,8 @@
+# 配置 redis
+redis:
+  host: 127.0.0.1
+  port: 6379
+  max-active: 7 # 最大连接数
+  max-idle: 7 # 最大等待连接数
+  min-idle: 2
+  password: foobared
