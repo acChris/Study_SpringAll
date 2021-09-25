@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>first_vue</title>
+</head>
+<body>
+
+<!--视图层-->
+<!--将数据绑定到页面元素-->
+<div id="app">
+    <!-- 1. 悬停显示信息   -->
+    <span v-bind:title="message">
+        鼠标悬停此处会显示绑定的提示
+    </span>
+
+    <!-- 2. v-if v-else 语法 -->
+    <h1 v-if="type==='A'">type is A!</h1>
+    <h1 v-else>No</h1>
+
+    <!-- 3. v-for 语法   -->
+    <li v-for="item in lists">
+        {{item.message}}
+    </li>
+
+    <!-- 4. 处理用户输入   -->
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">反转消息</button>
+
+</div>
+
+
+<!--引入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        //Model层： 数据
+        data: {
+            message: "hello,Vue!",
+            type: 'A',
+            lists: [
+                {message: 'message A'},
+                {message: 'message B'},
+                {message: 'message C'}
+            ]
+        },
+        method: {
+            reverseMessage: function(){
+                this.message = this.message.split(' ')[].reverse().join(' ');
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>
